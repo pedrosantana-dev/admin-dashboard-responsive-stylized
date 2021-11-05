@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+    font-family: 'Ubuntu', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    --blue: #1976D2;
+    --white: #fff;
+    --grey: #BDBDBD;
+    --black1: #212121;
+    --black2: #757575
+}
+body{
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+}
+
+.nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background: var(--blue);
+    border-left: 10px solid var(--blue);
+    overflow: hidden;
+    transition: .5s;
+}
+.nav.active{
+    width: 80px;
+}
+.nav ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    
+}
+.nav li {
+    position: relative;
+    width: 100%;
+    list-style: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.nav li:hover,
+.nav li.hovered {
+    background: var(--white);
+}
+.nav li:nth-child(1) {
+    margin-bottom: 40px;
+    pointer-events: none;
+}
+.nav li a {
+    position: relative;
+    display: flex;
+    width: 100%;
+    text-decoration: none;
+    color: var(--white);
+}
+.nav li:hover a,
+.nav li.hovered a {
+    color: var(--blue);
+}
+.nav li a .icon {
+    position: relative;
+    display: block;
+    height: 60px;
+    min-width: 60px;
+    line-height: 70px;
+    text-align: center;
+}
+.nav li a .icon ion-icon {
+    font-size: 1.75em;
+}
+.nav li a .title{
+    display: block;
+    padding: 0 10px;
+    height: 60px;
+    line-height: 60px;
+    text-align: start;
+    white-space: nowrap;
+}
+
+/* curva de fora */
+.nav li:hover a::after,
+.nav li.hovered a::after{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 30px 35px 0 10px var(--white);
+    pointer-events: none;
+}
+.nav li:hover a::before,
+.nav li.hovered a::before{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: transparent;
+    box-shadow: 30px -35px 0 10px var(--white);
+    pointer-events: none;
+}
+
+/* main */
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    transition: .5s;
+}
+.main.active{
+    width: calc(100% - 80px);
+    left: 80px;
+}
+.topbar{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+}
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+}
+.search label{
+    width: 100%;
+}
+.search input {
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;    
+    padding: 5px 20px;
+    padding-left: 35px;
+    font-size: 1em;
+    outline: none;
+    border: 1px solid var(--black2);
+}
+.search ion-icon{
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+.user{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
